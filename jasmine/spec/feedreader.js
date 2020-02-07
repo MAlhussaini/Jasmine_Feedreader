@@ -69,7 +69,7 @@ $(function () {
          * hiding/showing of the menu element.
          */
         it("it is hidden by default.", function () {
-            expect(menuClassHolder.className).toBe("menu-hidden")
+            expect(menuClassHolder.classList.contains("menu-hidden")).toBe(true)
         });
 
         /* TODO: Write a test that ensures the menu changes
@@ -96,9 +96,9 @@ $(function () {
             menuLink = document.querySelector('.menu-icon-link');
 
             simulateClick(menuLink); // toggle the app menu (from hidden to shown)
-            expect(menuClassHolder.className).not.toBe("menu-hidden")
+            expect(menuClassHolder.classList.contains("menu-hidden")).toBe(false)
             simulateClick(menuLink); // toggle the app menu (from shown to hidden again)
-            expect(menuClassHolder.className).toBe("menu-hidden")
+            expect(menuClassHolder.classList.contains("menu-hidden")).toBe(true)
         });
     });
 
@@ -118,7 +118,7 @@ $(function () {
          */
         it("it has at least one entry in the feed section.", function (done) {
             //make sure the feed container is not null
-            expect(document.querySelector(".entry")).not.toBeNull();
+            expect(document.querySelector(".feed .entry")).not.toBeNull();
             done();
         });
     });
